@@ -1,0 +1,4 @@
+Scanning dependencies of target tf_publisher
+[ 50%] Building CXX object CMakeFiles/tf_publisher.dir/tf_publisher.cpp.o
+[100%] Linking CXX executable /home/ros-industrial/HW9/devel/.private/hw9_1/lib/hw9_1/tf_publisher
+[100%] Built target tf_publisher

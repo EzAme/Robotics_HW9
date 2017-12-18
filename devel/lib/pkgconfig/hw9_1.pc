@@ -1,0 +1,1 @@
+/home/ros-industrial/HW9/devel/.private/hw9_1/lib/pkgconfig/hw9_1.pc

@@ -1,0 +1,8 @@
+prefix=/home/ros-industrial/HW9/devel/.private/hw9_1
+
+Name: hw9_1
+Description: Description of hw9_1
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ros-industrial/HW9/devel/.private/hw9_1/lib 
+Requires: 

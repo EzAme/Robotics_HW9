@@ -1,0 +1,7 @@
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp: In function ‘int main(int, char**)’:
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp:59:39: error: ‘base_link_to_EE’ was not declared in this scope
+     printTransform("base_link_to_EE", base_link_to_EE);
+                                       ^
+make[2]: *** [CMakeFiles/tf_publisher.dir/tf_publisher.cpp.o] Error 1
+make[1]: *** [CMakeFiles/tf_publisher.dir/all] Error 2
+make: *** [all] Error 2

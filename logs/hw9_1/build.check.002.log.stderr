@@ -1,0 +1,8 @@
+[31m[1mCMake Error[0m at /opt/ros/kinetic/share/roslaunch/cmake/roslaunch-extras.cmake:30 (message):
+  roslaunch_add_file_check() path '/home/ros-industrial/HW9/src/hw9_1/launch'
+  was not found
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:15 (roslaunch_add_file_check)
+
+
+make: *** [cmake_check_build_system] Error 1

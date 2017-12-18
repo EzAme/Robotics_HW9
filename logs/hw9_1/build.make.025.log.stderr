@@ -1,0 +1,10 @@
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp: In function ‘int main(int, char**)’:
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp:50:61: error: ‘link2_to_EE’ was not declared in this scope
+       listener.lookupTransform("link2", "EE", ros::Time(0), link2_to_EE);
+                                                             ^
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp:61:35: error: ‘link2_to_EE’ was not declared in this scope
+     printTransform("link2_to_EE", link2_to_EE);
+                                   ^
+make[2]: *** [CMakeFiles/tf_publisher.dir/tf_publisher.cpp.o] Error 1
+make[1]: *** [CMakeFiles/tf_publisher.dir/all] Error 2
+make: *** [all] Error 2

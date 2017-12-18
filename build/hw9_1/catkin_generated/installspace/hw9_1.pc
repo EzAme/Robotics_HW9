@@ -1,0 +1,8 @@
+prefix=/home/ros-industrial/HW9/install
+
+Name: hw9_1
+Description: Description of hw9_1
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ros-industrial/HW9/install/lib 
+Requires: 

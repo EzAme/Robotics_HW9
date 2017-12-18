@@ -1,0 +1,13 @@
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp:32:19: error: too many decimal points in number
+   double theta1 = 0.785., theta2 = 0.1, theta3 =1.57;
+                   ^
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp: In function ‘int main(int, char**)’:
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp:68:31: error: ‘theta2’ was not declared in this scope
+     joint_state.position[1] = theta2;
+                               ^
+/home/ros-industrial/HW9/src/hw9_1/tf_publisher.cpp:70:31: error: ‘theta3’ was not declared in this scope
+     joint_state.position[2] = theta3;
+                               ^
+make[2]: *** [CMakeFiles/tf_publisher.dir/tf_publisher.cpp.o] Error 1
+make[1]: *** [CMakeFiles/tf_publisher.dir/all] Error 2
+make: *** [all] Error 2

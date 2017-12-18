@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<robot name="three_link_manipulator" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<xacro:property name="radius" value="0.1" />
+<xacro:property name="radius1" value="0.0" />
+<xacro:property name="length" value="1" />
+<xacro:property name="length1" value="0" />
+ <xacro:property name="pi" value="3.1415" />
+
+<xacro:macro name="default_inertial" params="mass">
+	<inertial>
+		<mass value="${mass}" />
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0"
+	          iyy="1.0" iyz="0.0"
+	          izz="1.0" />
+	</inertial>
+</xacro:macro>
+
+  <material name="black">
+      <color rgba="0 0 0 1"/>
+  </material>      
+
+  <material name="red">
+       <color rgba="1 0 0 1"/>
+  </material>
+
+  <material name="blue">
+	<color rgba="0 0 1 1"/>
+   </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+        <cylinder length="${length1}" radius="0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <xacro:default_inertial mass="10"/>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <geometry>
+        <cylinder length="${length1}" radius="${radius}"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="blue"/>
+    </visual>
+    <xacro:default_inertial mass="10"/>
+  </link>
+  <link name="link3">
+    <visual>
+      <geometry>
+        <cylinder length="1" radius="${radius/2}"/>
+      </geometry>
+      <origin rpy=" ${-pi/2} 0 0" xyz="0 -0.5 0"/>
+        <material name="black"/>
+    </visual>
+    <xacro:default_inertial mass="10"/>
+  </link>
+
+<link name="EE">
+  <visual>
+    <geometry>
+      <box size="0.1 0.1 0.1"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+</link>
+<link name="BASE">
+<visual>
+  <geometry>
+    <box size="0.1 0.1 0.1"/>
+  </geometry>
+  <material name="black"/>
+</visual>
+</link>
+  <joint name= "base_to_baselink" type="fixed">
+    <parent link="BASE"/>
+    <child link="base_link"/>
+    <origin rpy="${pi/2} 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_link1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy = "0 0 0" xyz="0 0 0"/>
+    <limit effort = "1000.0" lower="${-pi/2}" upper = "${pi/2}" velocity="0.5"/>
+  </joint>
+
+  <joint name="link1_to_link2" type="prismatic">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <axis xyz="0 0 1"/>
+     <origin rpy="${pi/2} 0 ${pi/2}" xyz="0 0 0"/>
+    <limit effort = "1000.0" lower="0" upper = "0.2" velocity="0.5"/>
+  </joint>
+
+  <joint name="link2_to_link3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy = "${-pi/2} 0 0" xyz="0 0 0"/>
+    <limit effort = "1000.0" lower="0" upper = "${pi}" velocity="0.5"/>
+  </joint>
+
+  <joint name="link3_to_EE" type="fixed">
+    <parent link="link3"/>
+    <child link="EE"/>
+    <axis xyz="0 0 0"/>
+    <origin xyz="0 -1 0"/>
+    <limit effort = "1000.0" lower="${-pi/2}" upper = "${pi/2}" velocity="0.5"/>
+  </joint>
+</robot>
